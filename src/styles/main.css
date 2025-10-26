@@ -1,1 +1,23 @@
+@import "./fonts.css";
 @import "tailwindcss";
+
+@import "./base.css";
+
+@theme {
+  --font-firaCode: "FiraCode";
+  --font-iranSans: "IranSans";
+
+  --color-primary-950: #01030C;
+  --color-primary-900: #01090F;
+  --color-primary-800: #021012;
+  --color-primary-700: #031213;
+  --color-primary-600: #031417;
+  --color-primary-500: #1E3030;
+  --color-primary-400: #394A46;
+  --color-primary-300: #54635D;
+  --color-primary-200: #6F7C75;
+  --color-primary-100: #AAB2AC;
+  --color-primary-50: #D9DDD9;
+
+  --color-text-base: #F2F4F2;
+}

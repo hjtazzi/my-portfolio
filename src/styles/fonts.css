@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'FiraCode';
+  src: url('../assets/fonts/fira-code/FiraCode-Regular.woff2') format('woff2'),
+    url('../assets/fonts/fira-code/FiraCode-Regular.woff') format('woff'),
+    url('../assets/fonts/fira-code/FiraCode-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('../assets/fonts/fira-code/FiraCode-Bold.woff2') format('woff2'),
+    url('../assets/fonts/fira-code/FiraCode-Bold.woff') format('woff'),
+    url('../assets/fonts/fira-code/FiraCode-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IranSans';
+  src: url('../assets/fonts/iran-sans/IRANSansXRegular.eot');
+  src: url('../assets/fonts/iran-sans/IRANSansXRegular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/iran-sans/IRANSansXRegular.otf') format('otf'),
+    url('../assets/fonts/iran-sans/IRANSansXRegular.svg#IRANSansXRegular') format('svg'),
+    url('../assets/fonts/iran-sans/IRANSansXRegular.ttf') format('truetype'),
+    url('../assets/fonts/iran-sans/IRANSansXRegular.woff') format('woff'),
+    url('../assets/fonts/iran-sans/IRANSansXRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

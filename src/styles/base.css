@@ -1,0 +1,19 @@
+@layer base {
+  body {
+    font-family: var(--font-firaCode, var(--font-iranSans, var(--font-sans)));
+    background-color: var(--color-primary-900, var(--color-black));
+    color: var(--color-text-base, var(--color-primary-50, var(--color-white)));
+  }
+
+  .font-fa,
+  [lang="fa"] {
+    font-family: var(--font-iranSans, var(--font-sans));
+    direction: rtl;
+  }
+
+  .font-en,
+  [lang="en"] {
+    font-family: var(--font-firaCode, var(--font-iranSans, var(--font-sans)));
+    direction: ltr;
+  }
+}
