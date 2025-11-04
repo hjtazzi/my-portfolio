@@ -1,13 +1,18 @@
 import { } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import "./styles/main.css";
+import ErrorBoundary from './app/ErrorBoundary';
+import MainLayout from './components/layouts/MainLayout';
 
 
 const App = () => {
 
-
   return (
-    <h1 className='text-2xl p-1'>Hello!</h1>
+    <ErrorBoundary>
+      <MainLayout>
+        <Outlet />
+      </MainLayout>
+    </ErrorBoundary>
   );
 }
 

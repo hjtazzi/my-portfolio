@@ -3,6 +3,7 @@
     font-family: var(--font-firaCode, var(--font-iranSans, var(--font-sans)));
     background-color: var(--color-primary-900, var(--color-black));
     color: var(--color-text-base, var(--color-primary-50, var(--color-white)));
+    min-height: 100vh;
   }
 
   .font-fa,
@@ -15,6 +16,12 @@
   [lang="en"] {
     font-family: var(--font-firaCode, var(--font-iranSans, var(--font-sans)));
     direction: ltr;
+  }
+
+  .custom-scrollbar {
+    @apply scrollbar-thin
+          scrollbar-thumb-primary-500 scrollbar-track-transparent
+          scrollbar-hover:scrollbar-thumb-primary-400 scrollbar-active:scrollbar-thumb-primary-300;
   }
 
   /* .svg {
@@ -31,4 +38,8 @@
     stroke-linejoin: round;
     transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1);
   } */
+}
+
+@utility animation-delay-* {
+  animation-delay: --value([*]);
 }

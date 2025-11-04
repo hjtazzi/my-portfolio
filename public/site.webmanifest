@@ -6,8 +6,8 @@
   "dir": "ltr",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#031417",
-  "background_color": "#031417",
+  "theme_color": "#020c0e",
+  "background_color": "#020c0e",
   "orientation": "portrait-primary",
   "icons": [
     {

@@ -1,23 +1,55 @@
 @import "./fonts.css";
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+  preferredstrategy: "pseudoelements";
+}
+
 @import "./base.css";
 
 @theme {
   --font-firaCode: "FiraCode";
   --font-iranSans: "IranSans";
 
-  --color-primary-950: #01060C;
-  --color-primary-900: #02090D;
+  --color-primary-950: #01060c;
+  --color-primary-900: #02090d;
   --color-primary-800: #020c0e;
   --color-primary-700: #021012;
   --color-primary-600: #031417;
-  --color-primary-500: #1E3030;
-  --color-primary-400: #394A46;
-  --color-primary-300: #54635D;
-  --color-primary-200: #6F7C75;
-  --color-primary-100: #AAB2AC;
-  --color-primary-50: #D9DDD9;
+  --color-primary-500: #1e3030;
+  --color-primary-400: #394a46;
+  --color-primary-300: #54635d;
+  --color-primary-200: #6f7c75;
+  --color-primary-100: #aab2ac;
+  --color-primary-50: #d9ddd9;
 
-  --color-text-base: #F2F4F2;
+  --color-text-base: #f2f4f2;
+
+  --animate-wavey: wavey 1s linear infinite;
+  @keyframes wavey {
+    0%,
+    60%,
+    100% {
+      height: calc(var(--spacing) * 2);
+    }
+
+    30% {
+      height: calc(var(--spacing) * 6);
+    }
+  }
+
+  --animate-bounce-x: bounce-x 1.25s infinite;
+  @keyframes bounce-x {
+    0%,
+    100% {
+      transform: translateX(-2px);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
 }

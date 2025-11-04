@@ -1,10 +1,21 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { RouterProvider } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 
-import App from './App.tsx';
+import ContextProvider from './app/AppContext.tsx';
+import routes from './app/routes.tsx';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+import "./styles/main.css";
+
+
+createRoot(document.getElementById('root') as HTMLElement)
+  .render(
+    <StrictMode>
+      <HelmetProvider>
+        <ContextProvider>
+          <RouterProvider router={routes} />
+        </ContextProvider>
+      </HelmetProvider>
+    </StrictMode>,
+  );

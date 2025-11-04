@@ -10,17 +10,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lodash.debounce": "^4.0.8",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-error-boundary": "^6.0.0",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.4",
+    "react-syntax-highlighter": "^16.1.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^4.0.12",
     "@eslint/js": "^9.38.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/vite": "^4.1.16",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@vitejs/plugin-legacy": "^7.2.1",
     "@vitejs/plugin-react": "^5.1.0",
     "babel-plugin-react-compiler": "^1.0.0",
@@ -30,6 +41,7 @@
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
     "postcss-preset-env": "^10.4.0",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.16",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.2",
@@ -39,5 +51,6 @@
     "last 2 versions",
     "not dead",
     "> 0.2%"
-  ]
+  ],
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
 }
