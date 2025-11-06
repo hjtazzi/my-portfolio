@@ -1,65 +1,36 @@
 import { } from 'react';
-import { NavLink, type NavLinkProps } from "react-router-dom";
-import { cva, type VariantProps } from "class-variance-authority";
+import { Link, type LinkProps } from "react-router-dom";
 
 import { classCombiner } from "../../utils";
-import HighlighterFactory from './HighlighterFactory';
-
-
-const linkVariants = cva(
-  "inline-flex items-center transition-colors gap-2 bg-transparent",
-  {
-    variants: {
-      variant: {
-        primary: "text-sky-400 hover:text-sky-300 active:text-sky-500",
-        code: "hover:bg-primary-500 rounded-sm",
-      },
-      size: {
-        txt: "text-[1em]",
-        sm: "text-sm",
-        md: "text-base py-2 px-2.5",
-        lg: "text-lg",
-      },
-    },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
-    },
-  }
-);
 
 
 interface AppLinkProps extends
-  Omit<NavLinkProps, "className" | "children">,
-  VariantProps<typeof linkVariants> {
+  Omit<LinkProps, "className" | "children"> {
   children: React.ReactNode;
   className?: string;
   varName?: string;
 }
 
 
-const LinkFactory = ({ to, end, children, variant, size, className, varName, ...props }: AppLinkProps) => {
+const LinkFactory = ({ to, children, className, varName, ...props }: AppLinkProps) => {
   const path = typeof to === "string" ? to : to.pathname || "";
   const strChild = typeof children === "string" ? children : null;
-  const codeVar = `const ${varName} = "${strChild || path}";`
 
 
   return (
-    <NavLink
+    <Link
       to={to}
-      end={end}
+      className={classCombiner(`inline-flex flex-wrap items-center transition-colors py-1.5 px-2.5 gap-1.5
+                bg-transparent hover:bg-primary-500 rounded-sm text-base`, className)}
       {...props}
-      className={({ }) =>
-        classCombiner(linkVariants({ variant, size }), className)
-      }
     >
-      {variant !== "code"
-        ? children
-        : <>
-          <span className='text-pink-400 animate-bounce-x'>{`->`}</span>
-          <HighlighterFactory customStyle={{ fontSize: "1.1em", lineHeight: 1 }}>{codeVar}</HighlighterFactory>
-        </>}
-    </NavLink>
+      <span className="text-pink-200 whitespace-nowrap animate-bounce-x -ml-1">{`->`}</span>
+      <span className="text-sky-300">{`const`}</span>
+      <span className="text-current">{varName}</span>
+      <span className="text-pink-200">{`=`}</span>
+      <span className="text-emerald-300 font-semibold">{`"${strChild || path}"`}</span>
+      <span className="text-orange-200 -ml-1.5">{`;`}</span>
+    </Link>
   );
 };
 

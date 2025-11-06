@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react'
 import legacy from "@vitejs/plugin-legacy";
 import tailwindcss from "@tailwindcss/vite";
+import { visualizer } from 'rollup-plugin-visualizer';
+
 
 export default defineConfig({
   plugins: [
@@ -18,6 +20,18 @@ export default defineConfig({
       renderModernChunks: true,
     }),
     tailwindcss(),
+    visualizer({ filename: 'bundle-stats.html', })
   ],
-  build: {}
+  build: {
+    chunkSizeWarningLimit: 1024,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor_react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor_style': ['tailwind-merge', 'class-variance-authority', 'clsx', 'react-icons'],
+          'vendor_highlighter': ['react-syntax-highlighter']
+        }
+      }
+    }
+  }
 });

@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import { createHashRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 import App from '../App';
 import WithSuspense from '../components/shared/ComponentWithSuspense';
@@ -12,7 +12,7 @@ const Projects = lazy(() => import("../pages/Projects"));
 const ContactMe = lazy(() => import("../pages/ContactMe"));
 
 
-const routes = createBrowserRouter(
+const routes = createHashRouter(
   createRoutesFromElements(
     <Route element={<App />}>
       <Route index element={<WithSuspense component={<HomePage />} />} />

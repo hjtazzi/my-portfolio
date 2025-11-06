@@ -1,4 +1,4 @@
-import { Activity, memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
 import type { AppPaths } from '../../app/constants';
 import { useAppDispatch, useAppState } from '../../hooks/useAppContext';
@@ -43,7 +43,7 @@ const HeaderLayout = memo(({ navItems, activeItem }: HeaderLayout) => {
                       transition-colors duration-300 ${(!isAtLeast.md && isMobileMenu) && 'bg-primary-700/85'}`)}>
         <span className='block text-sm text-primary-100 whitespace-nowrap select-none'>Hojjat-Azizi</span>
 
-        <Activity mode={isAtLeast.md ? 'hidden' : 'visible'}>
+        {!isAtLeast.md && (
           <button
             onClick={toggleMenu}
             className='relative inline-flex flex-col items-center justify-center gap-1 p-1 size-7 rounded-sm'
@@ -55,7 +55,7 @@ const HeaderLayout = memo(({ navItems, activeItem }: HeaderLayout) => {
             <span className={classCombiner(`block w-full h-0.5 bg-primary-100 rounded-full transition-all
                             ${isMobileMenu && 'rotate-45 -translate-y-1.5 bg-primary-50'}`)}></span>
           </button>
-        </Activity>
+        )}
       </div>
 
 

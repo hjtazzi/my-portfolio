@@ -12,8 +12,8 @@ const linkVariants = cva(
       variant: {
         default: "",
         desktop: "hover:bg-primary-500 hover:text-primary-50 hover:border-b-primary-50",
-        active: "text-text-base border-b-2 border-b-orange-500 pointer-events-none",
-        mobileActive: "text-text-base pointer-events-none"
+        active: "text-text-base border-b-2 border-b-orange-500",
+        mobileActive: "text-text-base"
       },
       border: {
         none: "",

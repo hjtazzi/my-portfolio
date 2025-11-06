@@ -6,7 +6,7 @@ import HeadFactory from '../factory/HeadFactory';
 import HighlighterFactory from '../factory/HighlighterFactory';
 import LinkFactory from '../factory/LinkFactory';
 
-import { txtErr } from '../../data';
+import { txtErr } from '../../assets/imgs/ASCII';
 
 
 const codeStringLg = `
@@ -39,13 +39,13 @@ const ErrorFallback = () => {
   return (
     <>
       <HeadFactory title='Something Went Wrong' />
-      <div className='relative h-full overflow-y-auto custom-scrollbar mx-auto p-2'>
-        <div className='min-h-full flex flex-col md:flex-row gap-12 md:gap-6'>
+      <div className='ErrorPage relative h-full w-full overflow-y-auto overflow-x-hidden custom-scrollbar p-2'>
+        <div className='container mx-auto min-h-full flex flex-col md:flex-row gap-12 md:gap-6'>
           <div className='w-full md:w-1/2 flex items-center md:justify-center mt-12 md:mt-0'>
             <pre className='text-sm md:text-xl font-mono font-bold leading-none select-none p-1'>{txtErr}</pre>
           </div>
 
-          <div className='w-full md:w-1/2 flex flex-col md:justify-center gap-12 mb-4 md:mb-0'>
+          <div className='w-full md:w-1/2 flex flex-col md:justify-center gap-12 mb-3 md:mb-0'>
             <div className='overflow-x-auto custom-scrollbar p-1 text-sm md:text-base select-none'>
               <HighlighterFactory showLineNumbers>
                 {!isAtLeast.md ? codeStringSm.trim() : codeStringLg.trim()}
@@ -58,7 +58,7 @@ const ErrorFallback = () => {
                 <p>Go back to the home page and explore more cool stuff! 🔍</p>
               </div>
 
-              <LinkFactory to={AppPaths.Home} variant={'code'} varName='homePage'>
+              <LinkFactory to={AppPaths.Home} varName='homePage'>
                 /Home
               </LinkFactory>
             </div>

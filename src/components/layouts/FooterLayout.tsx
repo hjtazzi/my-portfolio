@@ -20,7 +20,7 @@ const FooterLayout = memo(() => {
           <span className='block text-sm whitespace-nowrap select-none'>find me in:</span>
         </div>
 
-        <a href='https://linkedin.com/in/hojjat-azizi' target='_blank'
+        <a href='https://linkedin.com/in/hojjat-azizi' target='_blank' rel='noopener noreferrer'
           className={classCombiner(`flex items-center justify-center h-full min-w-14 px-2 border-r border-r-primary-500
                         transition-colors hover:bg-primary-500 hover:text-primary-50`)}>
           <span className='text-xl md:text-2xl'><RiLinkedinLine /></span>
@@ -28,7 +28,7 @@ const FooterLayout = memo(() => {
 
         <i className='hidden md:block md:flex-1 opacity-0'></i>
 
-        <a href='https://github.com/hjtazzi' target='_blank'
+        <a href='https://github.com/hjtazzi' target='_blank' rel='noopener noreferrer'
           className={classCombiner(`flex items-center justify-center h-full min-w-14 px-3 md:px-6 gap-2 border-l border-l-transparent md:border-l-primary-500
                     transition-colors hover:bg-primary-500 hover:text-primary-50`)}>
           <span className='hidden md:block text-sm whitespace-nowrap'>@hjtazzi</span>

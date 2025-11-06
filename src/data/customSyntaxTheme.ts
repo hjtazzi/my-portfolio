@@ -19,14 +19,14 @@ export const noctisObscuroTheme = {
   },
 
   comment: { color: 'var(--color-slate-500)', fontStyle: 'italic' },
-  keyword: { color: 'var(--color-pink-400)' },
+  keyword: { color: 'var(--color-sky-300)' },
   string: { color: 'var(--color-emerald-300)' },
   number: { color: 'var(--color-indigo-300)' },
   function: { color: 'var(--color-orange-600)' },
   className: { color: 'var(--color-orange-600)' },
   builtin: { color: 'var(--color-amber-500)' },
-  operator: { color: 'var(--color-pink-500)' },
-  punctuation: { color: 'var(--color-amber-200)' },
+  operator: { color: 'var(--color-pink-200)' },
+  punctuation: { color: 'var(--color-orange-200)' },
 
   variable: { color: '#c084fc' },
   type: { color: '#818cf8' },
