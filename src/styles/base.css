@@ -24,20 +24,31 @@
           scrollbar-hover:scrollbar-thumb-primary-400 scrollbar-active:scrollbar-thumb-primary-300;
   }
 
-  /* .svg {
-    user-select: none;
-    width: 1.15em;
-    height: 1.15em;
-    display: inline-block;
-    flex-shrink: 0;
-    fill: currentcolor;
-    stroke: currentColor;
-    font-size: 1.15em;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  } */
+  .bg-blurs {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -10;
+      pointer-events: none;
+      width: 100%;
+      max-width: 72rem;
+      left: 0;
+      top: -16rem;
+      bottom: 0;
+      background-color: transparent;
+      background-image: url('../assets/imgs/backgroundBlurs.svg');
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: top;
+      background-size: cover;
+      mix-blend-mode: screen;
+      animation-duration: 8s !important;
+      
+      @apply select-none lg:[background-position-x:right] lg:-top-48 blur-lg animate-pulse;
+    }
+  }
 }
 
 @utility animation-delay-* {

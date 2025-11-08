@@ -38,8 +38,8 @@ const HeaderLayout = memo(({ navItems, activeItem }: HeaderLayout) => {
 
 
   return (
-    <div className='Header relative isolate overflow-hidden z-9997 w-full h-14 flex m-0 p-0 bg-transparent border-b border-b-primary-500'>
-      <div className={classCombiner(`flex items-center justify-between w-full md:w-1/6 m-0 px-3 md:px-6 gap-4 bg-primary-600/85
+    <header className='Header relative isolate overflow-hidden z-9997 w-full h-14 flex m-0 p-0 bg-transparent border-b border-b-primary-500'>
+      <div className={classCombiner(`flex items-center justify-between w-full md:w-1/6 md:min-w-38 m-0 px-4 md:px-6 gap-4 bg-primary-600/85
                       transition-colors duration-300 ${(!isAtLeast.md && isMobileMenu) && 'bg-primary-700/85'}`)}>
         <span className='block text-sm text-primary-100 whitespace-nowrap select-none'>Hojjat-Azizi</span>
 
@@ -63,12 +63,12 @@ const HeaderLayout = memo(({ navItems, activeItem }: HeaderLayout) => {
       {!isAtLeast.md && (
         <div className={classCombiner(`fixed top-16.25 bottom-16.25 left-2.25 right-2.25 z-10 overflow-hidden bg-primary-600/85 backdrop-blur-lg origin-top
                         transition-[max-height,background-color] duration-300 ${isMobileMenu ? 'max-h-full bg-primary-700/85' : 'max-h-0 pointer-events-none'}`)}>
-          <nav className='relative overflow-y-auto overflow-x-hidden custom-scrollbar w-full h-full min-h-68 bg-transparent pb-14'>
+          <nav onClick={closeMenu} className='relative overflow-y-auto overflow-x-hidden custom-scrollbar w-full h-full min-h-68 bg-transparent pb-14' >
             <ul className='flex flex-col'>
               {navItems.map(({ key, path }) => {
                 const isActive = key === activeItem;
 
-                return <li key={`m-${path}`} className='select-none p-0 m-0' onClick={closeMenu}>
+                return <li key={`m-${path}`} className='select-none p-0 m-0'>
                   <HeadMenuItem
                     to={path}
                     variant={isActive ? 'mobileActive' : 'default'}
@@ -108,7 +108,7 @@ const HeaderLayout = memo(({ navItems, activeItem }: HeaderLayout) => {
           </ul>
         </nav>
       )}
-    </div>
+    </header>
   )
 })
 

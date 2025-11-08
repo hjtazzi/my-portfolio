@@ -43,14 +43,13 @@ const MainLayout = memo(({ children }: MainLayout) => {
   return (
     <div className="MainLayout relative isolate overflow-hidden w-screen h-[calc(var(--real-vh,1vh)*100)] min-h-dvh flex 
                     items-center justify-center bg-transparent m-0 p-2 md:p-6">
-      <div className="relative isolate overflow-hidden w-full h-full flex flex-col
-                    bg-primary-600! border border-primary-500 rounded-lg m-0 p-0">
+      <div className="relative isolate overflow-hidden w-full h-full flex flex-col bg-primary-600! border border-primary-500 rounded-lg m-0 p-0">
 
         <HeaderLayout navItems={navItems} activeItem={activeRoute ?? ""} />
 
-        <div className='MainContent relative overflow-hidden block flex-1 h-[calc(100%-7rem)] w-full'>
+        <main className='MainContent relative overflow-hidden block flex-1 h-[calc(100%-7rem)] w-full'>
           {children}
-        </div>
+        </main>
 
         <FooterLayout />
       </div>

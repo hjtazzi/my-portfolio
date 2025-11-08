@@ -39,7 +39,7 @@
     }
   }
 
-  --animate-bounce-x: bounce-x 1.25s infinite;
+  --animate-bounce-x: bounce-x 1s infinite;
   @keyframes bounce-x {
     0%,
     100% {
@@ -48,25 +48,49 @@
     }
 
     50% {
-      transform: translateX(1px);
+      transform: translateX(2px);
       animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
   }
 
-  --animate-rotate-char: rotate-char 600ms
-    var(--tw-ease, var(--default-transition-timing-function));
+  --animate-rotate-char: rotate-char 600ms var(--tw-ease, var(--default-transition-timing-function)) forwards;
   @keyframes rotate-char {
-    0%,
-    100% {
-      transform: rotate(0);
-    }
-
-    20% {
-      transform: rotate(-2deg);
+    0% {
+      transform: rotate(6deg);
     }
 
     60% {
-      transform: rotate(4deg);
+      transform: rotate(-4deg);
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  --animate-fade-l: fade-l 300ms var(--tw-ease, var(--default-transition-timing-function)) forwards;
+  @keyframes fade-l {
+    0% {
+      opacity: 0;
+      transform: translateX(calc(var(--spacing) * 6));
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  --animate-fade-r: fade-r 300ms var(--tw-ease, var(--default-transition-timing-function)) forwards;
+  @keyframes fade-r {
+    0% {
+      opacity: 0;
+      transform: translateX(calc(var(--spacing) * -6));
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
     }
   }
 }

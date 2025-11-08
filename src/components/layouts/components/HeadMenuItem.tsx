@@ -6,7 +6,7 @@ import { classCombiner } from '../../../utils';
 
 
 const linkVariants = cva(
-  "h-full flex items-center px-6 transition-colors text-sm text-primary-100 whitespace-nowrap border-b border-b-transparent",
+  "h-full flex items-center px-6 transition-colors text-sm text-primary-100 whitespace-nowrap border-b border-b-transparent active:bg-primary-500 active:text-primary-50",
   {
     variants: {
       variant: {
@@ -21,7 +21,7 @@ const linkVariants = cva(
         left: "border-l border-l-primary-500",
       },
       isMobile: {
-        true: "px-3 py-4 border-b border-b-primary-500"
+        true: "px-4 py-4 border-b border-b-primary-500"
       }
     },
     defaultVariants: {
