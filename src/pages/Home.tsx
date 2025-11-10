@@ -3,23 +3,27 @@ import { Link } from 'react-router-dom';
 
 import { AppPaths } from '../app/constants';
 import { useAppDispatch } from '../hooks/useAppContext';
+// import useWindowSize from '../hooks/useWindowSize';
 import { setIsMobileMenu } from '../utils';
 import { Contacts } from '../data';
 
 import HeadFactory from '../components/factory/HeadFactory';
 import LinkFactory from '../components/factory/LinkFactory';
 
+import ParticlesWindow from '../components/pages/home/ParticlesWindow';
+
 
 const Home = () => {
   const dispatch = useAppDispatch();
+  // const { isAtLeast } = useWindowSize();
 
 
   return (
     <>
       <HeadFactory title='Home' />
       <div className='HomePage h-full w-full overflow-y-auto overflow-x-hidden custom-scrollbar py-2 bg-blurs'>
-        <div className='container mx-auto min-h-full flex flex-col md:flex-row gap-4 p-4'>
-          <div className='w-full md:w-1/2 flex flex-col md:items-center md:justify-center'>
+        <div className='container mx-auto min-h-full flex flex-col lg:flex-row gap-4 p-4'>
+          <div className='w-full lg:w-1/2 flex flex-col lg:items-center lg:justify-center'>
             <div className='flex flex-col min-w-3/5 gap-16'>
               <div className='flex flex-col items-start gap-1'>
                 <p className='text-base py-1 ml-0.5 text-primary-50 opacity-0 animate-fade-r animation-delay-[150ms]'>Hi all. I am</p>
@@ -44,7 +48,7 @@ const Home = () => {
                 </h2>
               </div>
 
-              <div className='flex flex-col items-start gap-1'>
+              <div className='flex flex-col items-start gap-1 opacity-0 animate-fade-r animation-delay-[600ms]'>
                 <p className='text-primary-50 flex gap-0.5 text-sm md:text-base mb-1.5 ml-0.5'>
                   <span>//</span>
                   <span>connect with me 🚀</span>
@@ -71,7 +75,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className='w-full md:w-1/2 flex'></div>
+          <ParticlesWindow />
         </div>
       </div>
     </>
