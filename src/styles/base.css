@@ -28,7 +28,7 @@
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       z-index: -10;
       pointer-events: none;
@@ -38,14 +38,14 @@
       top: -16rem;
       bottom: 0;
       background-color: transparent;
-      background-image: url('../assets/imgs/backgroundBlurs.svg');
+      background-image: url("../assets/imgs/backgroundBlurs.svg");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: top;
       background-size: cover;
       mix-blend-mode: screen;
       animation-duration: 8s !important;
-      
+
       @apply select-none lg:[background-position-x:right] lg:-top-48 blur-lg animate-pulse;
     }
   }

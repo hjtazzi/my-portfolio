@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AppPaths } from '../app/constants';
 import { useAppDispatch } from '../hooks/useAppContext';
-// import useWindowSize from '../hooks/useWindowSize';
+import useWindowSize from '../hooks/useWindowSize';
 import { setIsMobileMenu } from '../utils';
 import { Contacts } from '../data';
 
@@ -15,7 +15,7 @@ import ParticlesWindow from '../components/pages/home/ParticlesWindow';
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  // const { isAtLeast } = useWindowSize();
+  const { isAtLeast } = useWindowSize();
 
 
   return (
@@ -25,11 +25,11 @@ const Home = () => {
         <div className='container mx-auto min-h-full flex flex-col lg:flex-row gap-4 p-4'>
           <div className='w-full lg:w-1/2 flex flex-col lg:items-center lg:justify-center'>
             <div className='flex flex-col min-w-3/5 gap-16'>
-              <div className='flex flex-col items-start gap-1'>
+              <div className='flex flex-col items-start gap-1 text-shadow-primary-600 text-shadow-md'>
                 <p className='text-base py-1 ml-0.5 text-primary-50 opacity-0 animate-fade-r animation-delay-[150ms]'>Hi all. I am</p>
 
                 <Link to={AppPaths.AboutMe} className='opacity-0 animate-fade-r animation-delay-[300ms]'>
-                  <h1 className='text-5xl md:text-6xl py-2 flex flex-col md:flex-row flex-wrap gap-4 md:gap-6 font-bold whitespace-nowrap'>{
+                  <h1 className='text-5xl md:text-6xl py-2 flex flex-col md:flex-row flex-wrap gap-4 md:gap-6 md:font-bold whitespace-nowrap'>{
                     [["H", "o", "j", "j", "a", "t"], ["A", "z", "i", "z", "i"]].map((chars, i) => (
                       <span key={i}>{
                         chars.map((c, j) => (
@@ -42,7 +42,7 @@ const Home = () => {
                   }</h1>
                 </Link>
 
-                <h2 className='text-xl md:text-3xl py-2 text-blue-600 font-bold opacity-0 animate-fade-r animation-delay-[450ms]'>
+                <h2 className='text-xl md:text-3xl py-2 text-blue-500 font-bold opacity-0 animate-fade-r animation-delay-[450ms]'>
                   <span className='animate-bounce-x inline-block'>{`>`}</span>
                   <span>{` Backend Developer`}</span>
                 </h2>
@@ -75,7 +75,7 @@ const Home = () => {
             </div>
           </div>
 
-          <ParticlesWindow />
+          {isAtLeast.lg && <ParticlesWindow />}
         </div>
       </div>
     </>

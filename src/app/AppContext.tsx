@@ -1,12 +1,6 @@
 import { createContext, useReducer, useMemo, type ReactNode } from 'react';
-import { appReducer, type AppAction } from './appReducer';
-
-
-interface AppState {
-  isFirstLoad: boolean;
-  language: 'en' | 'fa';
-  isMobileMenu: boolean;
-}
+import { appReducer } from './appReducer';
+import type { AppAction, AppState } from '../types';
 
 
 const initialAppState: AppState = {
@@ -15,8 +9,9 @@ const initialAppState: AppState = {
   isMobileMenu: false,
 };
 
-const AppStateContext = createContext<AppState | undefined>(undefined);
-const AppDispatchContext = createContext<React.Dispatch<AppAction> | undefined>(undefined);
+
+export const AppStateContext = createContext<AppState | undefined>(undefined);
+export const AppDispatchContext = createContext<React.Dispatch<AppAction> | undefined>(undefined);
 
 
 const ContextProvider = ({ children }: { children: ReactNode; }) => {
@@ -34,5 +29,4 @@ const ContextProvider = ({ children }: { children: ReactNode; }) => {
   );
 }
 
-export { type AppState, AppStateContext, AppDispatchContext }
 export default ContextProvider;

@@ -18,10 +18,6 @@ const navItems = [
     path: AppPaths.AboutMe
   },
   {
-    key: "_Projects",
-    path: AppPaths.Projects
-  },
-  {
     key: "_ContactMe",
     path: AppPaths.ContactMe
   },

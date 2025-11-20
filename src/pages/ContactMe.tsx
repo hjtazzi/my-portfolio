@@ -104,7 +104,7 @@ const ContactMe = () => {
           </div>
 
           <div className='w-full md:w-1/2 flex items-center md:justify-center mt-12 md:mt-0'>
-            <pre className='text-[7px] md:text-xs font-bold font-mono leading-none select-none p-1'>{messageCode}</pre>
+            <pre className='text-[6px] md:text-xs font-mono leading-none select-none p-1'>{messageCode}</pre>
           </div>
         </div>
       </div >

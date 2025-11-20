@@ -1,13 +1,7 @@
-import type { AppState } from "./AppContext";
+import type { AppAction, AppState } from "../types";
 
 
-type AppAction =
-  | { type: 'SET_FIRST_LOAD'; payload: AppState['isFirstLoad'] }
-  | { type: 'SET_LANGUAGE'; payload: AppState['language'] }
-  | { type: 'SET_MOBILE_MENU'; payload: AppState['isMobileMenu'] }
-
-
-const appReducer = (state: AppState, action: AppAction): AppState => {
+export const appReducer = (state: AppState, action: AppAction): AppState => {
   switch (action.type) {
     case 'SET_FIRST_LOAD':
       return { ...state, isFirstLoad: action.payload };
@@ -22,5 +16,3 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
       return state;
   }
 }
-
-export { type AppAction, appReducer }
