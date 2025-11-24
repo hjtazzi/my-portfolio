@@ -12,6 +12,9 @@ export const appReducer = (state: AppState, action: AppAction): AppState => {
     case 'SET_MOBILE_MENU':
       return { ...state, isMobileMenu: action.payload };
 
+    case 'SET_CURRENT_DATE':
+      return { ...state, currentDate: action.payload };
+
     default:
       return state;
   }

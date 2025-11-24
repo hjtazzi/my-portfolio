@@ -59,7 +59,7 @@ const SidebarLayout = memo(({ title, children, initOpen = true, activeLeftIcon =
 
 
   return (
-    <div className={classCombiner(`SidebarLayout w-full md:w-1/6 md:min-w-38 m-0 p-0 flex md:border-r border-primary-500`, className)}>
+    <div className={classCombiner(`SidebarLayout w-full md:w-1/6 md:min-w-38 m-0 p-0 flex md:border-r border-primary-500 select-none`, className)}>
       <LeftIconBar active={activeLeftIcon} />
 
       <div className='relative w-full xl:w-[calc(100%-3.5rem)] h-full flex flex-col'>

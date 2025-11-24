@@ -7,6 +7,7 @@ const initialAppState: AppState = {
   isFirstLoad: true,
   language: 'en',
   isMobileMenu: false,
+  currentDate: null
 };
 
 

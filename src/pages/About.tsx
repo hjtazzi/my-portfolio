@@ -1,5 +1,8 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+import { useAppDispatch, useAppState } from '../hooks/useAppContext';
 import useWindowSize from '../hooks/useWindowSize';
+import { getAccurateNow, setCurrentDate } from '../utils';
 
 import HeadFactory from '../components/factory/HeadFactory';
 
@@ -8,6 +11,7 @@ import HeroSection from '../components/pages/about/HeroSection';
 import WorkExperience from '../components/pages/about/WorkExperience';
 import Skills from '../components/pages/about/Skills';
 import Education from '../components/pages/about/Education';
+import LoadingFallback from '../components/shared/LoadingFallback';
 
 
 const sidebarItems: TSidebarItem[] = [
@@ -43,6 +47,9 @@ const sidebarItems: TSidebarItem[] = [
 
 
 const About = () => {
+  const dispatch = useAppDispatch();
+  const { currentDate } = useAppState();
+
   const { isAtLeast } = useWindowSize();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -67,6 +74,35 @@ const About = () => {
   });
 
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const getCurrentDate = async () => {
+      if (!isMounted)
+        return;
+
+      try {
+        const dateNow = await getAccurateNow();
+        dispatch(setCurrentDate(dateNow));
+      } catch (_) { }
+    }
+
+    if (currentDate === null)
+      getCurrentDate();
+
+    return () => {
+      isMounted = false;
+    }
+  }, [currentDate]);
+
+
+
+  if (!currentDate)
+    return <>
+      <HeadFactory title='About Me' />
+      <LoadingFallback full={false} />
+    </>
+
 
   return (
     <>
@@ -78,7 +114,7 @@ const About = () => {
           {!isAtLeast.md && <Sidebar mode='mobile' items={sidebarItems} scrollTo={scrollToSection.current} />}
 
           <HeroSection id={sidebarItems[0].key}>
-            <WorkExperience id={sidebarItems[1].key} />
+            <WorkExperience id={sidebarItems[1].key} scrollContainerRef={containerRef} />
             <Skills id={sidebarItems[2].key} />
             <Education id={sidebarItems[3].key} />
           </HeroSection>

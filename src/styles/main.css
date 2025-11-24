@@ -72,7 +72,7 @@
   @keyframes fade-l {
     0% {
       opacity: 0;
-      transform: translateX(calc(var(--spacing) * 6));
+      transform: translateX(var(--animate-fade-l-space));
     }
 
     100% {
@@ -85,7 +85,33 @@
   @keyframes fade-r {
     0% {
       opacity: 0;
-      transform: translateX(calc(var(--spacing) * -6));
+      transform: translateX(var(--animate-fade-r-space));
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  --animate-fade-u: fade-u 300ms var(--tw-ease, var(--default-transition-timing-function)) forwards;
+  @keyframes fade-u {
+    0% {
+      opacity: 0;
+      transform: translateY(calc(var(--spacing) * 4));
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  --animate-fade-d: fade-d 300ms var(--tw-ease, var(--default-transition-timing-function)) forwards;
+  @keyframes fade-d {
+    0% {
+      opacity: 0;
+      transform: translateY(calc(var(--spacing) * -4));
     }
 
     100% {

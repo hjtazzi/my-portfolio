@@ -16,3 +16,8 @@ export const setLanguage = (payload: AppState['language']): AppAction => ({
   payload
 });
 
+export const setCurrentDate = (payload: Date): AppAction => ({
+  type: 'SET_CURRENT_DATE',
+  payload
+});
+

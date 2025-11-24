@@ -1,3 +1,11 @@
+export type TDate = { y: number; m: number; d: number };
+
+export type TDateRange = {
+  start: Date;
+  end: Date;
+}
+
+
 export type TDescription = {
   description: string;
   details: string | null;
@@ -10,6 +18,7 @@ export type TResumeData = {
     lastName: string;
     jobTitle: string;
     aboutYourself: TDescription;
+    birthdate: TDate;
     metaInfos: Record<string, string>;
     metaLinks: Record<string, string>;
   };
@@ -19,13 +28,13 @@ export type TResumeData = {
     employmentType?:
     | "FullTime" | "PartTime" | "SelfEmployed" | "Freelance" | "Contract" | "Internship"
     | "تمام‌وقت" | "پاره‌وقت" | "خویش‌فرما" | "فریلنس" | "قراردادی" | "کارآموزی";
-    startDate?: Date;
-    endDate?: Date | "Present";
     location: string;
     locationType?:
     | "OnSite" | "Hybrid" | "Remote"
     | "حضوری" | "ترکیبی" | "دورکاری";
     about: TDescription;
+    startDate: TDate;
+    endDate: TDate | "Present";
   }[];
   skills: {
     type: "bar" | "chip";
@@ -41,7 +50,7 @@ export type TResumeData = {
     | "High School Diploma" | "Associate Degree (AS)" | "Bachelor’s Degree (BS)" | "Master’s Degree (MS)"
     | "دیپلم" | "فوق‌دیپلم" | "کارشناسی" | "کارشناسی ارشد";
     field: string;
-    startDate?: Date;
-    endDate?: Date | "Present";
+    startDate: TDate;
+    endDate: TDate | "Present";
   }[];
 }

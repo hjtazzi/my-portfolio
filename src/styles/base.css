@@ -10,12 +10,16 @@
   [lang="fa"] {
     font-family: var(--font-iranSans, var(--font-sans));
     direction: rtl;
+    --animate-fade-l-space: calc(var(--spacing) * -6);
+    --animate-fade-r-space: calc(var(--spacing) * 6);
   }
 
   .font-en,
   [lang="en"] {
     font-family: var(--font-firaCode, var(--font-iranSans, var(--font-sans)));
     direction: ltr;
+    --animate-fade-l-space: calc(var(--spacing) * 6);
+    --animate-fade-r-space: calc(var(--spacing) * -6);
   }
 
   .custom-scrollbar {
@@ -52,5 +56,5 @@
 }
 
 @utility animation-delay-* {
-  animation-delay: --value([*]);
+  animation-delay: --value([ *]);
 }
