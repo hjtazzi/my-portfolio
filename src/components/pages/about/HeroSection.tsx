@@ -33,11 +33,13 @@ const HeroSection = memo(({ children, id }: { children: ReactNode; id: string; }
             <ChangeLangFactory />
           </div>
           <div className='flex-1 flex flex-col gap-1 md:gap-4 justify-center text-shadow-primary-900 text-shadow-md'>
-            <h1 ref={useRevealClass({ className: ['animate-fade-r'] })}
-              className='opacity-0 animation-delay-[150ms] text-2xl md:text-4xl lg:text-5xl font-bold whitespace-nowrap'>{`${bio.firstName} ${bio.lastName}`}</h1>
+            <div ref={useRevealClass({ className: ['animate-fade-r'] })} className='opacity-0 animation-delay-[150ms]'>
+              <h1 className='text-2xl md:text-4xl lg:text-5xl font-bold whitespace-nowrap'>{`${bio.firstName} ${bio.lastName}`}</h1>
+            </div>
 
-            <h2 ref={useRevealClass({ className: ['animate-fade-r'] })}
-              className='opacity-0 animation-delay-[300ms] text-xl md:text-2xl lg:text-3xl font-bold whitespace-nowrap text-blue-500'>{bio.jobTitle}</h2>
+            <div ref={useRevealClass({ className: ['animate-fade-r'] })} className='opacity-0 animation-delay-[300ms]'>
+              <h2 className='text-xl md:text-2xl lg:text-3xl font-bold whitespace-nowrap text-blue-500'>{bio.jobTitle}</h2>
+            </div>
           </div>
         </div>
       </div>
