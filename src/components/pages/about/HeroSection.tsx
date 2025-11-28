@@ -2,16 +2,22 @@ import { memo, type ReactNode } from 'react';
 
 import { useAppState } from '../../../hooks/useAppContext';
 import useRevealClass from '../../../hooks/useRevealClass';
+import { ResumeData } from '../../../data';
 
 import DescriptionFactory from '../../factory/DescriptionFactory';
 import ChangeLangFactory from '../../factory/ChangeLangFactory';
+
 import MetaInfo from './MetaInfo';
 
-import { ResumeData } from '../../../data';
-import profileImage from '../../../assets/imgs/profile.webp';
+
+interface HeroSection {
+  children: ReactNode;
+  id: string;
+  profileImage: string;
+}
 
 
-const HeroSection = memo(({ children, id }: { children: ReactNode; id: string; }) => {
+const HeroSection = memo(({ children, id, profileImage }: HeroSection) => {
   const { language: lang } = useAppState();
   const { bio } = ResumeData[lang];
 

@@ -1,10 +1,15 @@
 import axios from "axios";
+import { toJalaali } from "jalaali-js";
+import { convertEnDigitsToFa } from "./";
 import type { TDate, TDateRange } from "../types";
 
+
+const FA_MONTHS = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند",];
 
 const API_PRIMARY = (key: string) => `https://api.timezonedb.com/v2.1/get-time-zone?key=${key}&format=json&by=zone&zone=UTC`;
 const API_SECOND = "https://timeapi.io/api/Time/current/zone?timeZone=UTC";
 const API_THIRD = "https://aisenseapi.com/services/v1/datetime";
+
 
 export const getAccurateNow = async (): Promise<Date> => {
   try {
@@ -52,32 +57,29 @@ export const getAccurateNow = async (): Promise<Date> => {
 
 
 export const diffDate = (start: Date, end: Date) => {
-  let years = end.getUTCFullYear() - start.getUTCFullYear();
-  let months = end.getUTCMonth() - start.getUTCMonth();
+  const totalMonths =
+    (end.getUTCFullYear() - start.getUTCFullYear()) * 12 +
+    (end.getUTCMonth() - start.getUTCMonth()) +
+    1;
 
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  return { years, months };
+  return {
+    years: Math.floor(totalMonths / 12),
+    months: totalMonths % 12,
+  };
 }
 
 
 export const formatDate = (date: TDate, format: "en" | "fa"): string => {
-  const d = new Date(Date.UTC(date.y, date.m - 1, date.d));
-
+  const newDate = new Date(Date.UTC(date.y, date.m - 1, date.d || 1));
 
   if (format === "en") {
     return new Intl.DateTimeFormat("en-US", {
       month: "short",
       year: "numeric",
-    }).format(d);
+    }).format(newDate);
   } else {
-    const formatYear = new Intl.DateTimeFormat("fa-IR", { year: "numeric" }).format(d);
-    const formatMonth = new Intl.DateTimeFormat("fa-IR", { month: "long" }).format(d);
-
-    return `${formatMonth} ${formatYear}`;
+    const { jy, jm } = toJalaali(newDate);
+    return `${FA_MONTHS[jm - 1]} ${convertEnDigitsToFa(jy.toString())}`
   }
 }
 
@@ -112,8 +114,7 @@ export const calcDateRange = (ranges: TDateRange[]) => {
   let totalMonths = 0;
 
   ranges.forEach(r => {
-    const years = r.end.getFullYear() - r.start.getFullYear();
-    let months = r.end.getMonth() - r.start.getMonth();
+    const { years, months } = diffDate(r.start, r.end);
 
     totalMonths += years * 12 + months;
   });

@@ -80,7 +80,8 @@ const MetaInfo = () => {
 
         {Object.entries(metaLinks).map(([key, value]) => (
           <li key={key} className='px-3 inline-flex items-center'>
-            <Link to={value} className='max-lg:flex-1 inline-flex items-center gap-1.5 text-sm text-primary-50 whitespace-nowrap transition-colors hover:text-sky-400 active:text-sky-400'>
+            <Link to={value} target='_blank' rel='noopener noreferrer'
+              className='max-lg:flex-1 inline-flex items-center gap-1.5 text-sm text-primary-50 whitespace-nowrap transition-colors hover:text-sky-400 active:text-sky-400'>
               <span className='text-xs'><RiLink /></span>
               <span>{key}</span>
             </Link>

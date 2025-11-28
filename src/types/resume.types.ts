@@ -1,4 +1,4 @@
-export type TDate = { y: number; m: number; d: number };
+export type TDate = { y: number; m: number; d?: number };
 
 export type TDateRange = {
   start: Date;

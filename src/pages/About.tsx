@@ -5,13 +5,15 @@ import useWindowSize from '../hooks/useWindowSize';
 import { getAccurateNow, setCurrentDate } from '../utils';
 
 import HeadFactory from '../components/factory/HeadFactory';
+import LoadingFallback from '../components/shared/LoadingFallback';
 
 import Sidebar, { type TSidebarItem } from '../components/pages/about/Sidebar';
 import HeroSection from '../components/pages/about/HeroSection';
 import WorkExperience from '../components/pages/about/WorkExperience';
 import Skills from '../components/pages/about/Skills';
 import Education from '../components/pages/about/Education';
-import LoadingFallback from '../components/shared/LoadingFallback';
+
+import profileImage from '../assets/imgs/profile.webp';
 
 
 const sidebarItems: TSidebarItem[] = [
@@ -49,8 +51,8 @@ const sidebarItems: TSidebarItem[] = [
 const About = () => {
   const dispatch = useAppDispatch();
   const { currentDate } = useAppState();
-
   const { isAtLeast } = useWindowSize();
+
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = useRef((id: string) => {
@@ -113,7 +115,7 @@ const About = () => {
         <div ref={containerRef} className='w-full md:w-5/6 h-full flex flex-col overflow-y-auto overflow-x-hidden custom-scrollbar'>
           {!isAtLeast.md && <Sidebar mode='mobile' items={sidebarItems} scrollTo={scrollToSection.current} />}
 
-          <HeroSection id={sidebarItems[0].key}>
+          <HeroSection id={sidebarItems[0].key} profileImage={profileImage}>
             <WorkExperience id={sidebarItems[1].key} scrollContainerRef={containerRef} />
             <Skills id={sidebarItems[2].key} />
             <Education id={sidebarItems[3].key} />

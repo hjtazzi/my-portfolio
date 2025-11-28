@@ -26,6 +26,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      jalaali-js:
+        specifier: ^1.2.8
+        version: 1.2.8
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -69,6 +72,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.16
         version: 4.1.16(vite@7.1.12(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0))
+      '@types/jalaali-js':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@types/lodash.debounce':
         specifier: ^4.0.9
         version: 4.0.9
@@ -1508,6 +1514,9 @@ packages:
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
+  '@types/jalaali-js@1.2.0':
+    resolution: {integrity: sha512-DRQKjbfFe0/v3siCou9eFzYjDxJItkJpxbU+/CSptvoRqq2/VmTA6y8QvqK/VELKW6xX3qb174nLZlrFV9OT3Q==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -2139,6 +2148,9 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+
+  jalaali-js@1.2.8:
+    resolution: {integrity: sha512-Jl/EwY84JwjW2wsWqeU4pNd22VNQ7EkjI36bDuLw31wH98WQW4fPjD0+mG7cdCK+Y8D6s9R3zLiQ3LaKu6bD8A==}
 
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
@@ -4397,6 +4409,8 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
+  '@types/jalaali-js@1.2.0': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/lodash.debounce@4.0.9':
@@ -5088,6 +5102,8 @@ snapshots:
       is-docker: 2.2.1
 
   isexe@2.0.0: {}
+
+  jalaali-js@1.2.8: {}
 
   jiti@2.6.1: {}
 
